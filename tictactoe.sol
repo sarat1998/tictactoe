@@ -95,7 +95,7 @@ contract TicTacToe {
         }
     }
 
-    function move(uint8 row, uint8 col) returns(bytes32[])
+    function move(uint8 row, uint8 col) returns(string)
     {
 
         
@@ -141,7 +141,8 @@ contract TicTacToe {
                 board[row][col] = "O";
             } 
 
-         return print();
+         print();
+         return "Valid Move";
         }
         else
         {
