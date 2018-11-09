@@ -52,11 +52,41 @@ contract TicTacToe {
     	 	return "Game over player 'O' won the game."; 
     	}
 
+    	if(turn == 1)
+    	{
+    		if(msg.sender!=player1)
+    		{
+    			return "It's player1's turn";
+    		}
+
+    	}
+
+    	if(turn == 2)
+    	{
+    		if(msg.sender!=player2)
+    		{
+    			return "It's player2's turn";
+    		}
+
+    	}
+
     	bool isValid = checkValidity(row,col);
 
     	if(isValid)
     	{
+    		if(msg.sender == player1)
+    		{
+    			board[row][col] = player1;
+    		}
+    		else
+    		{
+    			board[row][col] = player2;
+    		} 
+    	}
 
+    	else
+    	{
+    		return "Place is not Valid !";
     	}
 
 
