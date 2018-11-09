@@ -1,7 +1,7 @@
 pragma solidity ^0.4.0;
 
 contract TicTacToe {
-    char[3][3] board;
+    string[3][3] board;
     address manager, player1 = 0, player2 = 0;
     uint8 turn = 1;
 
@@ -22,8 +22,23 @@ contract TicTacToe {
     }
 
     function move(uint8 row, uint8 col) {
-        if (board[row - 1][col - 1] == '-') {
+        if (board[row][col] == '-') {
 
         }
+    }
+
+    function print() returns (string) {
+        string memory output = new string(18);
+        uint8 idx = 0;
+
+        for (uint8 i = 0; i < 3; i++) {
+            for (uint8 j = 0; j < 3; j++) {
+                output[idx++] = board[i][j];
+                output[idx++] = '|';
+            }
+            output[idx++] = '\n';
+        }
+
+        return output;
     }
 }
